@@ -6,7 +6,6 @@ from .models import Recipe
 from recipes.models import Recipe
 
 
-<<<<<<< HEAD
 def home(request):
     recipes = Recipe.objects.filter(is_published=True).order_by('-id')
     return render(request, 'recipes/pages/home.html', context={
@@ -36,10 +35,3 @@ def recipe(request, id):
         'recipe': recipe,
         'is_detail_page': True,
     })
-
-=======
-
-def home(request):
-    return render(request, 'home.html')
-
->>>>>>> 449690cbe3a176ae57378e1ae49d80e21595e3be
