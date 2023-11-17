@@ -31,7 +31,7 @@ class RecipeViewsBase(TestCase):
         author_data=None,
         title='Recipe Title',
         description='Recipe Description',
-        slug='recipe-slug',
+        slug='recipe-slug-for-no-default',
         preparation_time=10,
         preparation_time_unit='Minutos',
         servings=5,
