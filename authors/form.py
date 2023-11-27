@@ -93,6 +93,14 @@ class RegisterForm(forms.ModelForm):
                 params={'value': '"John Doe"'}
             )
         return data
+    
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+        exists = User.objects.filter(email=email).exists()
+
+        if exists:
+            raise ValidationError('User e-mail is alaread in use', code='invalid')
+
     def clean(self):
         cleaned_data = super().clean()
         password = cleaned_data.get('password')
