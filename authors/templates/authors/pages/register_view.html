@@ -1,0 +1,15 @@
+{% extends "global/base.html"%}
+
+{%block title %}Register |{% endblock title %}
+
+{% block content %}
+    <div class="main-content center container">
+        {% comment %} Contador que exibe na tela {% endcomment %}
+        {% comment %} <h2>Register {{ request.session.number }} </h2> {% endcomment %}
+        <h2>Register</h2>
+    </div>
+
+    {% include 'global/partials/messages.html' %}
+
+    {% include "global/partials/form.html" %}
+{% endblock content %}
