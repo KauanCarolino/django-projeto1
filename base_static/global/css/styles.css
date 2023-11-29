@@ -362,6 +362,10 @@
     background: var(--color-primary-dark);
     color: var(--color-white);
   }
+
+  .form-content a {
+    line-break: anywhere;
+  }
   
   .inline-form {
     display: inline;
