@@ -1,5 +1,5 @@
 from django.urls import path
-from recipes.views import home
+from .views import home
 from . import views
 from django.conf.urls.static import static
 from django.conf import settings
@@ -7,11 +7,18 @@ from django.conf import settings
 app_name = 'recipes'
 
 urlpatterns = [
-    path('', views.home, name="home"),
-    path('recipes/search/', views.search, name="search"),
+    path('', views.RecipeListviewBase.as_view(), name="home"),
+
+    path('recipes/search/', views.RecipeViewSearch.as_view(), name="search"),
+
     path('recipes/category/<int:category_id>/',
-         views.category, name="category"),
-    path('recipes/<int:id>/', views.recipe, name="recipe"),
+         views.RecipeViewCategory.as_view(), name="category"),
+
+    path('recipes/<int:pk>/', views.RecipeViewRecipe.as_view(), name="recipe"),
+
+    path('recipes/theory/', views.theory, name="theory"),
+
+    path('recipes/api/v1/<int:pk>/', views.RecipeDetailAPI.as_view(), name="recipes_api_v1"),
 ]
 
 

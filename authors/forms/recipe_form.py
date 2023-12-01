@@ -22,8 +22,8 @@ class AuthorRecipeForm(forms.ModelForm):
             'cover': forms.FileInput(attrs={'class':'span-2'}),
             'servings_unit': forms.Select(
                 choices=(
-                    ('Proções', 'Proções'),
-                    ('Pedações', 'Pedaços'),
+                    ('Porções', 'Porções'),
+                    ('Pedaços', 'Pedaços'),
                     ('Pessoas', 'Pessoas'),                    
                 ),
             ),
