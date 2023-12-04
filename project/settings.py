@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     #String com o nome do seu apps
     'recipes',
     'authors',
+    'tag',
     'debug_toolbar',
 ]
 
