@@ -1,10 +1,11 @@
+from collections import defaultdict
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models import F, Value
 from django.db.models.functions import Concat
+from django.forms import ValidationError
 from django.urls import reverse
 from django.utils.text import slugify
-from django.contrib.contenttypes.fields import GenericRelation
 from tag.models import Tag
 
 
@@ -60,3 +61,18 @@ class Recipe(models.Model):
             self.slug = slug
 
         return super().save(*args, **kwargs)
+    
+    def clean(self, *args, **kwargs):
+        error_menssage = defaultdict(list)
+
+        recipe_from_db = Recipe.objects.filter(
+            title__iexact=self.title
+        ).first()
+
+        if recipe_from_db:
+            if recipe_from_db.pk != self.pk:
+                error_menssage['title'].append(
+                    'Found recipes with the same title'
+                )
+        if error_menssage:
+            raise ValidationError(error_menssage)

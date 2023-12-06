@@ -488,7 +488,7 @@
     width: 260px;
     min-height: 100vh;
     overflow-y: auto;
-    background: var(--color-primary);
+    background: var(--color-primary-dark);
     z-index: 2;
     transition: all 300ms ease-in-out;
   }
@@ -506,7 +506,7 @@
     left: 265px;
     top: 2rem;
     color: var(--color-white);
-    background-color: var(--color-primary);
+    background-color: var(--color-primary-dark);
     border: none;
     font-size: 2rem;
     z-index: 3;
@@ -516,6 +516,7 @@
     transition: all 300ms ease-in-out;
     border-radius: 0 4px 4px 0;
     cursor: pointer;
+    margin-top: 14px;
   }
   
   .button-show-menu-visible {

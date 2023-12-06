@@ -14,7 +14,8 @@ import os
 from pathlib import Path
 
 from django.contrib.messages import constants
-
+from utils.environment import get_env_variable, parse_comma_sep_str_to_list
+from typing import List
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -31,7 +32,6 @@ DEBUG = True if os.environ.get('DEBUG') == '1' else False
 ALLOWED_HOSTS = [
     '*'
 ]
-
 
 # Application definition
 
