@@ -18,6 +18,11 @@
 
 
         <span class="recipe-author-item">
+
+            {% if recipe.author.profile %}
+            <a href="{% url "authors:profile" recipe.author.profile.id%}">
+            {% endif %}
+
             <i class="fas fa-user"></i>
             {% if recipe.author is not None %}
                 {% if recipe.author.first_name %}
@@ -28,6 +33,11 @@
             {% else %}
                 Desconhecido
             {% endif %}
+
+            {% if recipe.author.profile %}
+            </a>
+            {% endif %}
+
         </span>
 
         <span class="recipe-author-item">
